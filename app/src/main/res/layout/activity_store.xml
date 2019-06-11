@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StoreActivity">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/NavMenu"
+        android:background="#63CBFC"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_items"/>
+
+    <FrameLayout
+        android:id="@+id/FrameStore"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        app:layout_constraintBottom_toTopOf="@+id/NavMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/TextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="39dp"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginEnd="39dp"
+                android:layout_marginRight="39dp"
+                android:text="ĐĂNG NHẬP HOÀN TẤT !"
+                android:textColor="#F44336"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/TextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginRight="80dp"
+                android:text="Chọn các chức năng bên dưới  ▼"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextView1" />
+        </android.support.constraint.ConstraintLayout>
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
