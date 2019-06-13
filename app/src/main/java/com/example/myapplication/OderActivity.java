@@ -46,9 +46,9 @@ public class OderActivity extends AppCompatActivity {
     TextView txtmanv,txttongtien;
     ListView listViewoder;
     ArrayList<classSanPham> SanPhamOderArrayList;
-    String urlthemspoer= url.getUrl()+"qlcf/ThemspOder.php";
-    String urlthanhtoan= url.getUrl()+"qlcf/updateThanhToan.php";
-    String urlxoaspOder= url.getUrl()+"qlcf/xoaspOder.php";
+    String urlthemspoer= url.getUrl()+"ThemspOder.php";
+    String urlthanhtoan= url.getUrl()+"updateThanhToan.php";
+    String urlxoaspOder= url.getUrl()+"xoaspOder.php";
 
 
     @Override
@@ -67,13 +67,13 @@ public class OderActivity extends AppCompatActivity {
         txttongtien=findViewById(R.id.txttongtien);
 
         banArrayList= new ArrayList<>();
-        String urlban =url.getUrl()+"qlcf/loadspinnerBan.php";
+        String urlban =url.getUrl()+"loadspinnerBan.php";
         loadSpinnerban(urlban);
 
 
 
         spArrayList= new ArrayList<>();
-        String urlsp =url.getUrl()+"qlcf/loadSpinnerSanPham.php";
+        String urlsp =url.getUrl()+"loadSpinnerSanPham.php";
         loadSpinnersp(urlsp);
 
         SharedPreferences shared= getSharedPreferences("login", Context.MODE_PRIVATE);
@@ -138,7 +138,7 @@ public class OderActivity extends AppCompatActivity {
     }
     public void loadListview(final String maban){
         SanPhamOderArrayList= new ArrayList<classSanPham>();
-        final String  URLtkbtuan= url.getUrl()+"qlcf/selctBanOser.php?maban="+maban+"";
+        final String  URLtkbtuan= url.getUrl()+"selctBanOser.php?maban="+maban+"";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

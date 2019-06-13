@@ -37,8 +37,8 @@ public class SanPham extends AppCompatActivity {
     url url= new url();
     EditText edtmasp,edttensp,edtgia;
 
-    String urlthemsp= url.getUrl()+"qlcf/ThemSanPham.php";
-    String urlxoasp= url.getUrl()+"qlcf/XoaSanPham.php";
+    String urlthemsp= url.getUrl()+"ThemSanPham.php";
+    String urlxoasp= url.getUrl()+"XoaSanPham.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +95,7 @@ public class SanPham extends AppCompatActivity {
 
     public void loadListview(){
         SanPhamArrayList= new ArrayList<classSanPham>();
-        final String  URLtkbtuan= url.getUrl()+"qlcf/SelectSanPham.php";
+        final String  URLtkbtuan= url.getUrl()+"SelectSanPham.php";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

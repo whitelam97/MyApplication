@@ -35,7 +35,7 @@ public class BartenderActivity extends AppCompatActivity {
     ListView lvphache;
     ArrayList<classSanPham> phacheArrayList;
     url url= new url();
-    String urlxoasp= url.getUrl()+"qlcf/Xoaphache.php";
+    String urlxoasp= url.getUrl()+"Xoaphache.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class BartenderActivity extends AppCompatActivity {
     }
     public void Loadlv(){
         phacheArrayList= new ArrayList<classSanPham>();
-        final String  URLtkbtuan= url.getUrl()+"qlcf/selectPhaChe.php";
+        final String  URLtkbtuan= url.getUrl()+"selectPhaChe.php";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

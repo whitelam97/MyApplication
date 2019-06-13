@@ -30,7 +30,7 @@ public class Thongke extends AppCompatActivity {
         lvthongke= findViewById(R.id.lvthongke);
         txttongtien=findViewById(R.id.txttongtienthongke);
         thongkeArrayList= new ArrayList<classSanPham>();
-        final String  URLtkbtuan= url.getUrl()+"qlcf/selectThongKe.php";
+        final String  URLtkbtuan= url.getUrl()+"selectThongKe.php";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

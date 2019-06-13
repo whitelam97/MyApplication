@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     //đăng nhập
     public void login(final String user, final String pass){
-       String urllogin = url.getUrl()+"qlcf/login.php?tk="+user+"&mk="+pass+"";
+       String urllogin = url.getUrl()+"login.php?tk="+user+"&mk="+pass+"";
         Log.i("Hiteshurl",""+urllogin);
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, urllogin, new Response.Listener<String>() {

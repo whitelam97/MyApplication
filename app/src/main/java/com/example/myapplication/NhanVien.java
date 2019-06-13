@@ -36,8 +36,8 @@ public class NhanVien extends AppCompatActivity {
     url url= new url();
     EditText edtten,edtmanv,edttk,edtmk,edtcongviec;
 
-    String urlthemnv= url.getUrl()+"qlcf/ThemNhanVien.php";
-    String urlxoanv= url.getUrl()+"qlcf/XoaNhanVien.php";
+    String urlthemnv= url.getUrl()+"ThemNhanVien.php";
+    String urlxoanv= url.getUrl()+"XoaNhanVien.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +99,7 @@ public class NhanVien extends AppCompatActivity {
     }
     public void loadListview(){
         nhanvienArrayList= new ArrayList<classnhanvien>();
-        final String  URLtkbtuan1= url.getUrl()+"qlcf/selectnhanvien.php";
+        final String  URLtkbtuan1= url.getUrl()+"selectnhanvien.php";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

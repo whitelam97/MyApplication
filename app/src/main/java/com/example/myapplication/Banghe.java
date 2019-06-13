@@ -41,8 +41,8 @@ public class Banghe extends AppCompatActivity {
 
     ListView listView;
 
-    String urlthemban= url.getUrl()+"qlcf/themban.php";
-    String urlxoaban= url.getUrl()+"qlcf/xoaban.php";
+    String urlthemban= url.getUrl()+"themban.php";
+    String urlxoaban= url.getUrl()+"xoaban.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class Banghe extends AppCompatActivity {
 
     public void loadListview(){
         banArrayList= new ArrayList<classBan>();
-        final String  URLtkbtuan1= url.getUrl()+"qlcf/selectBan.php";
+        final String  URLtkbtuan1= url.getUrl()+"selectBan.php";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
