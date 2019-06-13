@@ -119,7 +119,8 @@ public class SanPham extends AppCompatActivity {
                     SanPhamArrayList.add(new classSanPham(
                             lh.getString("masp"),
                             lh.getString("tensp"),
-                            lh.getString("giasp")
+                            lh.getString("giasp"),
+                            ""
                     ));
                 }
                 SanPhamAdapter adapter= new SanPhamAdapter(getApplicationContext(), R.layout.rowsanpham,SanPhamArrayList);

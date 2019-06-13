@@ -18,6 +18,8 @@ public class StoreActivity extends AppCompatActivity {
         Button btnnv=findViewById(R.id.btnnv);
         Button btnbanghe =findViewById(R.id.btnbanghe);
         Button btnsp = findViewById(R.id.btnsanpham);
+        Button btnds = findViewById(R.id.btndoanhso);
+
 
         btnbanghe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,13 @@ public class StoreActivity extends AppCompatActivity {
             }
         });
 
+        btnds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(StoreActivity.this, Thongke.class);
+                startActivity(intent);
+            }
+        });
 
 
 

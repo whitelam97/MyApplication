@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
             LoadLogin = (ProgressBar)findViewById(R.id.LoadLogin);
              TestBartender = (ImageView)findViewById(R.id.IconLogin);
 
-             EdtTaikhoan.setText("hoanghuy");
-            EdtMatkhau.setText("hoanghuy");
+             EdtTaikhoan.setText("thuytien");
+            EdtMatkhau.setText("thuytien");
 
 
 

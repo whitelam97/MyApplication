@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SanPham"></activity>
+        <activity android:name=".Thongke"></activity>
+        <activity android:name=".SanPham" />
         <activity android:name=".NhanVien" />
         <activity android:name=".Banghe" />
         <activity android:name=".BartenderActivity" />

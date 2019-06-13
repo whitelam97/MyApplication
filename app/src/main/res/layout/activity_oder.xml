@@ -151,11 +151,11 @@
         android:layout_marginBottom="8dp"
         android:text="them"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnthanhtoan"
+        app:layout_constraintEnd_toStartOf="@+id/btnthanhtoanorder"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnthanhtoan"
+        android:id="@+id/btnthanhtoanorder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="113dp"
@@ -163,7 +163,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Button"
+        android:text="Thanh toan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnthemspoder" />

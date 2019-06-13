@@ -43,10 +43,12 @@ public class OderActivity extends AppCompatActivity {
     url url=new url();
     ArrayList<String> banArrayList;
     ArrayList<String> spArrayList;
-    TextView txtmanv,tongtien;
+    TextView txtmanv,txttongtien;
     ListView listViewoder;
     ArrayList<classSanPham> SanPhamOderArrayList;
     String urlthemspoer= url.getUrl()+"qlcf/ThemspOder.php";
+    String urlthanhtoan= url.getUrl()+"qlcf/updateThanhToan.php";
+    String urlxoaspOder= url.getUrl()+"qlcf/xoaspOder.php";
 
 
     @Override
@@ -56,15 +58,18 @@ public class OderActivity extends AppCompatActivity {
 
         txtcapnhat =findViewById(R.id.txtcn);
         Button btnthem= findViewById(R.id.btnthemspoder);
+        Button btnthanhtoan= findViewById(R.id.btnthanhtoanorder);
+
         listViewoder = findViewById(R.id.lvspoder);
         txtmanv =findViewById(R.id.txtmanv);
         spnban= findViewById(R.id.spnban);
         spnsp=findViewById(R.id.spnsanpham);
-        tongtien=findViewById(R.id.txttongtien);
+        txttongtien=findViewById(R.id.txttongtien);
 
         banArrayList= new ArrayList<>();
         String urlban =url.getUrl()+"qlcf/loadspinnerBan.php";
         loadSpinnerban(urlban);
+
 
 
         spArrayList= new ArrayList<>();
@@ -97,7 +102,6 @@ public class OderActivity extends AppCompatActivity {
                 String[] outpu = sp.split(" ");
                 String masp =outpu[0];
                 Toast.makeText(OderActivity.this, maban+masp, Toast.LENGTH_SHORT).show();
-
                 themspoer(urlthemspoer,manv,masp,maban,"0");
             }
         });
@@ -110,6 +114,26 @@ public class OderActivity extends AppCompatActivity {
             }
         });
 
+        btnthanhtoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(OderActivity.this, SanPhamOderArrayList.size()+""+SanPhamOderArrayList.get(0).getIdpc(), Toast.LENGTH_SHORT).show();
+                for (int i=0; i<SanPhamOderArrayList.size();i++){
+                    updatethanhtoan(urlthanhtoan,SanPhamOderArrayList.get(i).getIdpc());
+                }
+
+            }
+        });
+
+        listViewoder.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String ma= SanPhamOderArrayList.get(i).getIdpc();
+                xoaspOder(urlxoaspOder,ma);
+                return false;
+            }
+        });
+
 
     }
     public void loadListview(final String maban){
@@ -118,14 +142,12 @@ public class OderActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new docJson().execute(URLtkbtuan);
+                new docJsonodersp().execute(URLtkbtuan);
             }
         });
-
-
     }
 
-    class docJson extends AsyncTask<String,Integer,String> {
+    class docJsonodersp extends AsyncTask<String,Integer,String> {
         //doinbackgroufd dung doc du lieu tren mang
         @Override
         protected String doInBackground(String... strings) {
@@ -140,14 +162,20 @@ public class OderActivity extends AppCompatActivity {
                     SanPhamOderArrayList.add(new classSanPham(
                             lh.getString("masp"),
                             lh.getString("tensp"),
-                            lh.getString("giasp")
-                    ));
+                            lh.getString("giasp"),
+                            lh.getString("idpc")
+                            ));
                 }
+                float tongtien=0;
+                 for (int i=0;i<SanPhamOderArrayList.size();i++){
+                         float gia =Float.parseFloat(SanPhamOderArrayList.get(i).getGia());
+                         tongtien=tongtien+gia;
+                     }
+                 txttongtien.setText(tongtien+"");
                 SanPhamAdapter adapter= new SanPhamAdapter(getApplicationContext(), R.layout.rowsanpham,SanPhamOderArrayList);
                 listViewoder.setAdapter(adapter);
 
             } catch (JSONException e) {
-                Toast.makeText(OderActivity.this, e.toString()+"", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
@@ -264,6 +292,69 @@ public class OderActivity extends AppCompatActivity {
                 param.put("maban",maban);
                 param.put("tinhtrang","0");
 
+                return param;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+
+
+    private void updatethanhtoan(String urladdsv, final String manv){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest= new StringRequest(Request.Method.POST,urladdsv,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.equals("success")){
+                            Toast.makeText(OderActivity.this, "Cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(OderActivity.this, "Cập nhật loi", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(OderActivity.this, "Lỗi sever"+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> param = new HashMap<>();
+                param.put("idpc",manv);
+
+                return param;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+
+    //xoa  nv
+    private void xoaspOder(String urladdsv, final String ma){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest= new StringRequest(Request.Method.POST,urladdsv,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.equals("success")){
+                            Toast.makeText(OderActivity.this, "Xóa thành công!", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(OderActivity.this, "Xóa lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(OderActivity.this, "Lỗi sever"+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> param = new HashMap<>();
+                param.put("idpc",ma);
                 return param;
             }
         };
