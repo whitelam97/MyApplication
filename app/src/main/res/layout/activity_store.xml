@@ -6,60 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".StoreActivity">
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/NavMenu"
-        android:background="#63CBFC"
+
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:text="QUẢN LÝ QUÁN COFFEE"
+        android:textColor="#F44336"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:text="Chọn các chức năng bên dưới  ▼"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView1" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_items"/>
+        app:layout_constraintTop_toBottomOf="@+id/TextView2">
 
-    <FrameLayout
-        android:id="@+id/FrameStore"
-        android:layout_width="match_parent"
-        android:layout_height="670dp"
-        app:layout_constraintBottom_toTopOf="@+id/NavMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <android.support.constraint.ConstraintLayout
+        <Button
+            android:id="@+id/btnbanghe"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Quản lý bàn ghế" />
 
-            <TextView
-                android:id="@+id/TextView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
-                android:layout_marginLeft="39dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginEnd="39dp"
-                android:layout_marginRight="39dp"
-                android:text="ĐĂNG NHẬP HOÀN TẤT !"
-                android:textColor="#F44336"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnnv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="quản lý nhân viên" />
 
-            <TextView
-                android:id="@+id/TextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="80dp"
-                android:layout_marginRight="80dp"
-                android:text="Chọn các chức năng bên dưới  ▼"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TextView1" />
-        </android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/btnsanpham"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="quản lý sản phẩm" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btndoanhso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thống kê doanh số" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

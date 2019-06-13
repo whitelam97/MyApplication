@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">STORE COFFEE</string>
-    <string name="Nav_Banghe">Banghe</string>
     <string name="Nav_Sanpham">Sanpham</string>
     <string name="Nav_Nhanvien">Nhanvien</string>
     <string name="Nav_Thongke">Thongke</string>
